@@ -4,33 +4,39 @@ package algorithms;
  * Created by Zach on 10/13/2015.
  */
 public class QuickSort {
+    private int array[];
 
     public void sort(int[] array){
-        quickSort(array, 0, array.length - 1);
+        this.array = array;
+        quickSort(0, array.length - 1);
     }
 
-    private void quickSort(int[] array, int low, int high){
+    private void quickSort(int low, int high){
         if(low < high){
-            int p = partition(array, low, high);
-            quickSort(array, low, p - 1);
-            quickSort(array, p + 1, high);
+            int p = partition(low, high);
+            if(p > 1)
+                quickSort(low, p - 1);
+            if(p + 1 < high)
+            quickSort(p + 1, high);
         }
     }
 
-    private int partition(int[] array, int low, int high){
+    private int partition(int low, int high){
         int pivot = array[high];
         int i = low;
         for(int j = low; j < high; j++){
             if(array[j] <= pivot){
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                swap(i, j);
                 i++;
             }
         }
-        int temp = array[i];
-        array[i] = array[high];
-        array[high] = temp;
+        swap(i, high);
         return i;
+    }
+
+    private void swap(int indexOne, int indexTwo){
+        int temp = this.array[indexOne];
+        this.array[indexOne] = this.array[indexTwo];
+        this.array[indexTwo] = temp;
     }
 }

@@ -15,28 +15,52 @@ public class SortingTests {
         int randomArray[] = MathHelper.getRandomArray(10000, 0, 1000);
         // Make a copy of the array to be used for quick sorting so that we can test all algorithms independently, on the same data set.
         int quickSortArray[] = Arrays.copyOf(randomArray, randomArray.length);
+        // Make a copy of the array to be used for javas sorting algo so that we can test all algorithms independently, on the same data set.
+        int javaSortArray[] = Arrays.copyOf(randomArray, randomArray.length);
         // Make a copy of the array to be used for insertion sort so that we can test all algorithms independently, on the same data set.
         int insertionArray[] = Arrays.copyOf(randomArray, randomArray.length);
 
         // Make a new QuickSort object to apply the quick sort algorithm
         QuickSort quickSort = new QuickSort();
 
-        System.out.println("Unsorted array");
+        System.out.println("Unsorted array (" + randomArray.length + " elements)");
         for(int i = 0; i < randomArray.length; i++){
             System.out.print(randomArray[i] + (i == randomArray.length - 1 ? "" : ", "));
         }
 
-        long startTime = System.nanoTime();
-        long startTimems = System.currentTimeMillis();
+        long startTime, endTime;
+
+        startTime = System.nanoTime();
+        Arrays.sort(javaSortArray);
+        endTime = System.nanoTime();
+        System.out.println("\n\nJava Arrays.sort on sudo-random array (Took " + (endTime - startTime) / 1000000.0 + " ms):");
+        for(int i = 0; i < javaSortArray.length; i++){
+            System.out.print(javaSortArray[i] + (i == javaSortArray.length - 1 ? "" : ", "));
+        }
+
+        startTime = System.nanoTime();
+        Arrays.sort(javaSortArray);
+        endTime = System.nanoTime();
+        System.out.println("\n\nJava Arrays.sort on an already sorted array (Took " + (endTime - startTime) / 1000000.0 + " ms):");
+        for(int i = 0; i < javaSortArray.length; i++){
+            System.out.print(javaSortArray[i] + (i == javaSortArray.length - 1 ? "" : ", "));
+        }
+
+        startTime = System.nanoTime();
         quickSort.sort(quickSortArray);
-        long endTime = System.nanoTime();
-        long endTimems = System.currentTimeMillis();
-        System.out.println("\n\nQuick sort (Took " + ((endTime - startTime) / 1000) + " microseconds) (" + Math.round(endTimems - startTimems) + " ms):");
+        endTime = System.nanoTime();
+        System.out.println("\n\nQuick sort on sudo-random array (Took " + (endTime - startTime) / 1000000.0  + " ms):");
         for(int i = 0; i < quickSortArray.length; i++){
             System.out.print(quickSortArray[i] + (i == quickSortArray.length - 1 ? "" : ", "));
         }
 
-
+        startTime = System.nanoTime();
+        quickSort.sort(quickSortArray);
+        endTime = System.nanoTime();
+        System.out.println("\n\nQuick sort on an already sorted array (Took " + (endTime - startTime) / 1000000.0  + " ms):");
+        for(int i = 0; i < quickSortArray.length; i++){
+            System.out.print(quickSortArray[i] + (i == quickSortArray.length - 1 ? "" : ", "));
+        }
 
     }
 }
