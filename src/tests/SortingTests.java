@@ -12,7 +12,7 @@ public class SortingTests {
 
     public static void main(String[] args){
         // Generate a sudo random array of arbitrary size
-        int randomArray[] = MathHelper.getRandomArray(10000, 0, 1000);
+        int randomArray[] = MathHelper.getRandomArray(50000, 0, 1000);
         // Make a copy of the array to be used for quick sorting so that we can test all algorithms independently, on the same data set.
         int quickSortArray[] = Arrays.copyOf(randomArray, randomArray.length);
         // Make a copy of the array to be used for javas sorting algo so that we can test all algorithms independently, on the same data set.

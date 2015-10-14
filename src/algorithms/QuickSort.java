@@ -4,39 +4,47 @@ package algorithms;
  * Created by Zach on 10/13/2015.
  */
 public class QuickSort {
-    private int array[];
 
     public void sort(int[] array){
-        this.array = array;
-        quickSort(0, array.length - 1);
+        quickSort(array, 0, array.length - 1);
     }
 
-    private void quickSort(int low, int high){
-        if(low < high){
-            int p = partition(low, high);
-            if(p > 1)
-                quickSort(low, p - 1);
-            if(p + 1 < high)
-            quickSort(p + 1, high);
+    private void quickSort(int[] array, int low, int high){
+        int index = partition(array, low, high);
+        if(low < index - 1){
+            quickSort(array, low, index - 1);
         }
+        if(index < high){
+            quickSort(array, index, high);
+        }
+
     }
 
-    private int partition(int low, int high){
-        int pivot = array[high];
-        int i = low;
-        for(int j = low; j < high; j++){
-            if(array[j] <= pivot){
-                swap(i, j);
+    private int partition(int[] array, int low, int high){
+        int i = low, j = high, tmp;
+        int pivot = array[(low + high) / 2];
+
+        while(i <= j) {
+            while (array[i] < pivot) {
                 i++;
             }
+            while (array[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                tmp = array[i];
+                array[i] = array[j];
+                array[j] = tmp;
+                i++;
+                j--;
+            }
         }
-        swap(i, high);
         return i;
     }
 
-    private void swap(int indexOne, int indexTwo){
-        int temp = this.array[indexOne];
-        this.array[indexOne] = this.array[indexTwo];
-        this.array[indexTwo] = temp;
+    private void swap(int[] array, int indexOne, int indexTwo){
+        int temp = array[indexOne];
+        array[indexOne] = array[indexTwo];
+        array[indexTwo] = temp;
     }
 }
