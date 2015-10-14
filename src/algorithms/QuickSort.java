@@ -32,11 +32,7 @@ public class QuickSort {
                 j--;
             }
             if (i <= j) {
-                tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
-                i++;
-                j--;
+                swap(array, i++, j--);
             }
         }
         return i;
