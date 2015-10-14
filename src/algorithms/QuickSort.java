@@ -8,8 +8,8 @@ package algorithms;
  * ---------------------------------------------------------
  *                  Complexity Analysis
  * ---------------------------------------------------------
- * Worst Case Performance   : O(n^2)        comparisons and swaps    (Array is already sorted in descending order)
- * Best Case Performance    : O(n log(n))   comparisons and O(1) swaps (Array is already sorted in ascending order)
+ * Worst Case Performance   : O(n^2)        comparisons and swaps       (Array is already sorted in descending order)
+ * Best Case Performance    : O(n log(n))   comparisons and O(1) swaps  (Array is already sorted in ascending order)
  * Average Case Performance : O(n log(n))   comparisons and swaps
  */
 public class QuickSort extends AbstractSorter{
