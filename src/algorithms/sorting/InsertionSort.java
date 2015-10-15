@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.sorting;
 
 /**
  * Created by zach on 10/14/2015.

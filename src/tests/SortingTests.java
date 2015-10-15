@@ -1,7 +1,9 @@
 package tests;
 
-import algorithms.InsertionSort;
-import algorithms.QuickSort;
+import algorithms.searching.Searching;
+import algorithms.sorting.InsertionSort;
+import algorithms.sorting.QuickSort;
+import algorithms.sorting.Sorting;
 import utils.MathHelper;
 
 import java.util.Arrays;
@@ -22,11 +24,6 @@ public class SortingTests {
         int javaSortArray[] = Arrays.copyOf(randomArray, randomArray.length);
         // Make a copy of the array to be used for insertion sort so that we can test all algorithms independently, on the same data set.
         int insertionArray[] = Arrays.copyOf(randomArray, randomArray.length);
-
-        // Make a new QuickSort object to apply the quick sort algorithm
-        QuickSort quickSort = new QuickSort();
-        // Make a new InsertionSort object to apply the insertion sort algorthm
-        InsertionSort insertionSort = new InsertionSort();
 
         // Print the initial unsorted array
         System.out.println("Unsorted array (" + randomArray.length + " elements)");
@@ -51,7 +48,7 @@ public class SortingTests {
         }
 
         startTime = System.nanoTime();
-        quickSort.sort(quickSortArray);
+        Sorting.quickSort(quickSortArray);
         endTime = System.nanoTime();
         System.out.println("\n\nQuick sort on sudo-random array (Took " + (endTime - startTime) / 1000000.0  + " ms):");
         for(int i = 0; i < quickSortArray.length; i++){
@@ -59,7 +56,7 @@ public class SortingTests {
         }
 
         startTime = System.nanoTime();
-        quickSort.sort(quickSortArray);
+        Sorting.quickSort(quickSortArray);
         endTime = System.nanoTime();
         System.out.println("\n\nQuick sort on an already sorted array (Took " + (endTime - startTime) / 1000000.0  + " ms):");
         for(int i = 0; i < quickSortArray.length; i++){
@@ -67,7 +64,7 @@ public class SortingTests {
         }
 
         startTime = System.nanoTime();
-        insertionSort.sort(insertionArray);
+        Sorting.insertionSort(insertionArray);
         endTime = System.nanoTime();
         System.out.println("\n\nInsertion sort on sudo-random array (Took " + (endTime - startTime) / 1000000.0  + " ms):");
         for(int i = 0; i < insertionArray.length; i++){
@@ -75,7 +72,7 @@ public class SortingTests {
         }
 
         startTime = System.nanoTime();
-        insertionSort.sort(insertionArray);
+        Sorting.insertionSort(insertionArray);
         endTime = System.nanoTime();
         System.out.println("\n\nInsertion sort on an already sorted array (Took " + (endTime - startTime) / 1000000.0  + " ms):");
         for(int i = 0; i < insertionArray.length; i++){
