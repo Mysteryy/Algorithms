@@ -2,7 +2,7 @@ package utils;
 
 /**
  * Created by Zach on 10/13/2015.
- *
+ * <p>
  * This class contains math related helper functions.
  */
 public class MathHelper {
@@ -15,24 +15,24 @@ public class MathHelper {
      * @param max the maximum value (inclusive)
      * @return a random value as defined above.
      */
-    public static int getRandomNumber(int min, int max){
+    public static int getRandomNumber(int min, int max) {
         int range = (max - min) + 1;
         return (int) (Math.random() * range) + min;
     }
 
-     /**
+    /**
      * Gets an array of the specified size, filled with sudo-random
      * values between minValue (inclusive) and maxValue (inclusive).
      *
-     * @param size the size of the sudo-random array to be generated
+     * @param size     the size of the sudo-random array to be generated
      * @param minValue the minimum value to be generated and placed in the array (inclusive)
      * @param maxValue the maximum value to be generated and placed in the array (inclusive)
      * @return an array filled with sudo-random values between minValue and maxValue
      */
-    public static int[] getRandomArray(int size, int minValue, int maxValue){
-        if(size > 0) {
+    public static int[] getRandomArray(int size, int minValue, int maxValue) {
+        if (size > 0) {
             int[] randomArray = new int[size];
-            for(int index = 0; index < size; index++){
+            for (int index = 0; index < size; index++) {
                 randomArray[index] = getRandomNumber(minValue, maxValue);
             }
             return randomArray;
@@ -46,7 +46,7 @@ public class MathHelper {
      * @param number the number to round.
      * @return the rounded int value.
      */
-    public static int roundNumber(double number){
+    public static int roundNumber(double number) {
         return (int) Math.round(number);
     }
 
@@ -57,7 +57,7 @@ public class MathHelper {
      * @param number the number to round down.
      * @return the rounded down number.
      */
-    public static int roundNumberDown(double number){
+    public static int roundNumberDown(double number) {
         return (int) Math.floor(number);
     }
 
@@ -68,7 +68,7 @@ public class MathHelper {
      * @param number the number to round up.
      * @return the rounded up number.
      */
-    public static int roundNumberUp(double number){
+    public static int roundNumberUp(double number) {
         return (int) Math.ceil(number);
     }
 }

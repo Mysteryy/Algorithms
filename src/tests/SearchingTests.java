@@ -6,10 +6,12 @@ import utils.MathHelper;
 
 /**
  * Created by zach on 10/14/2015.
+ * <p>
+ * Test for searching algorithms.
  */
 public class SearchingTests {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // Generate a sudo random array of arbitrary size
         int randomArray[] = MathHelper.getRandomArray(50, 0, 20);
         // Arbitrary search key
@@ -20,7 +22,7 @@ public class SearchingTests {
 
         // Print the initial unsorted array
         System.out.println("Unsorted array (" + randomArray.length + " elements)");
-        for(int i = 0; i < randomArray.length; i++){
+        for (int i = 0; i < randomArray.length; i++) {
             System.out.print(randomArray[i] + (i == randomArray.length - 1 ? "" : ", "));
         }
 
