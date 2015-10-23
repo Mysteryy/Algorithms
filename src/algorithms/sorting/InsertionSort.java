@@ -16,7 +16,7 @@ public class InsertionSort extends AbstractSorter {
 
     @Override
     public void sort(int[] array) {
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 1; i < array.length; i++) {
             int x = array[i];
             int j = i;
             while (j > 0 && array[j - 1] > x) {
